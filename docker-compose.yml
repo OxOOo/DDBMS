@@ -1,0 +1,55 @@
+version: '3'
+services:
+  web:
+    image: node
+    volumes:
+      - .:/root/ddbms
+    working_dir: /root/ddbms
+
+  db1: &DBMS1
+    hostname: db1
+    image: mongo
+    command: mongod --dbpath /data/db --replSet DBMS1
+    volumes: [./data/db1:/data/db]
+  db2:
+    <<: *DBMS1
+    hostname: db2
+    volumes: [./data/db2:/data/db]
+    ports:
+      - 30002:27017
+  db3:
+    <<: *DBMS1
+    hostname: db3
+    volumes: [./data/db3:/data/db]
+  db4:
+    <<: *DBMS1
+    hostname: db4
+    volumes: [./data/db4:/data/db]
+  db5:
+    <<: *DBMS1
+    hostname: db5
+    volumes: [./data/db5:/data/db]
+
+  db11: &DBMS2
+    hostname: db11
+    image: mongo
+    command: mongod --dbpath /data/db --replSet DBMS2
+    volumes: [./data/db11:/data/db]
+  db12:
+    <<: *DBMS2
+    hostname: db12
+    volumes: [./data/db12:/data/db]
+    ports:
+      - 30012:27017
+  db13:
+    <<: *DBMS2
+    hostname: db13
+    volumes: [./data/db13:/data/db]
+  db14:
+    <<: *DBMS2
+    hostname: db14
+    volumes: [./data/db14:/data/db]
+  db15:
+    <<: *DBMS2
+    hostname: db15
+    volumes: [./data/db15:/data/db]

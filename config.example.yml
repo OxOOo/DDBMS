@@ -1,0 +1,7 @@
+SERVER:
+  ADDRESS: 127.0.0.1
+  PORT: 8800
+  SECRET_KEYS: 'this is secret key' # 加密session用的key
+  MAXAGE: 0 # 静态资源缓存时间,单位ms
+
+DB_CONFIG_PATH: '.db_config.json'
