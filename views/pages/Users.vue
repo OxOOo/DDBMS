@@ -23,7 +23,7 @@
             <Option value="female">Female</Option>
         </Select>
 
-        <Table stripe border :columns="columns" :data="users"></Table>
+        <Table stripe border :columns="columns" :data="users"></Table><br/>
         <Page :current="page" :page-size="page_size" :total="total_count" show-sizer show-total @on-change="onPageChange" @on-page-size-change="onPageSizeChange" >
             <slot>total {{ total_count }} records</slot>
         </Page>

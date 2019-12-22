@@ -1,15 +1,36 @@
 let mongoose = require('mongoose');
 
 module.exports = new mongoose.Schema({
-    id: String,
+    id: {
+        type: String,
+        index: true
+    },
     timestamp: Date,
-    uid: String,
-    aid: String,
+    uid: {
+        type: String,
+        index: true
+    },
+    aid: {
+        type: String,
+        index: true
+    },
     readTimeLength: String,
     readSequence: String,
-    readOrNot: Boolean,
-    agreeOrNot: Boolean,
-    commentOrNot: Boolean,
+    readOrNot: {
+        type: Boolean,
+        index: true
+    },
+    agreeOrNot: {
+        type: Boolean,
+        index: true
+    },
+    commentOrNot: {
+        type: Boolean,
+        index: true
+    },
     commentDetail: String,
-    shareOrNot: Boolean
+    shareOrNot: {
+        type: Boolean,
+        index: true
+    }
 });

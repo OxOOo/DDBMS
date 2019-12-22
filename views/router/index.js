@@ -4,10 +4,12 @@ import Router from 'vue-router';
 import MainLayout from '@/pages/MainLayout';
 
 import Index from '@/pages/Index';
+import Popular from '@/pages/Popular';
 import Articles from '@/pages/Articles';
 import Article from '@/pages/Article';
 import Users from '@/pages/Users';
 import User from '@/pages/User';
+import Admin from '@/pages/Admin';
 
 Vue.use(Router);
 
@@ -29,6 +31,11 @@ export default new Router({
                     component: Articles
                 },
                 {
+                    path: 'popular_articles',
+                    name: 'Popular',
+                    component: Popular
+                },
+                {
                     path: 'article/:aid',
                     name: 'Article',
                     component: Article
@@ -42,6 +49,11 @@ export default new Router({
                     path: 'user/:uid',
                     name: 'User',
                     component: User
+                },
+                {
+                    path: 'admin',
+                    name: 'Admin',
+                    component: Admin
                 }
             ]
         }

@@ -14,7 +14,7 @@ async function loadUsers (user_path) {
     console.log('users num:', users.length);
     await gate.loadUsers(users);
 }
-async function loadArticles (article_path) {
+async function loadArticles (article_path, article_storage_path) {
     let content = fs.readFileSync(article_path, 'utf-8');
     let lines = content.split('\n');
     let articles = [];
@@ -24,7 +24,7 @@ async function loadArticles (article_path) {
         articles.push(JSON.parse(line.trim()));
     }
     console.log('articles num:', articles.length);
-    await gate.loadArticles(articles);
+    await gate.loadArticles(articles, article_storage_path);
 }
 
 async function loadReads (read_path) {
@@ -41,14 +41,16 @@ async function loadReads (read_path) {
 }
 
 const article_path = path.resolve(__dirname, '..', '3-sized-db-generation/article.dat');
+const article_storage_path = path.resolve(__dirname, '..', '3-sized-db-generation', 'articles');
 const user_path = path.resolve(__dirname, '..', '3-sized-db-generation/user.dat');
 const read_path = path.resolve(__dirname, '..', '3-sized-db-generation/read.dat');
 
 async function main () {
     try {
-        // await loadUsers(user_path);
-        // await loadArticles(article_path);
-        // await loadReads(read_path);
+        await loadUsers(user_path);
+        // await loadArticles(article_path, article_storage_path);
+        await loadArticles(article_path, null);
+        await loadReads(read_path);
         await gate.buildAllBeRead();
     } catch (e) {
         console.error(e);

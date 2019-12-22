@@ -17,3 +17,4 @@ data
 config.yml
 3-sized-db-generation
 .db_config.json
+export

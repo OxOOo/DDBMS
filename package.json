@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "flv.js": "^1.5.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.1",
@@ -21,6 +22,7 @@
     "koa-session": "^5.12.3",
     "koa-static": "^5.0.0",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "mongoose": "^5.8.1",
     "mz": "^2.7.0",
     "rate-limiter-flexible": "^1.2.0",
@@ -28,7 +30,8 @@
     "utility": "^1.16.3",
     "view-design": "^4.0.2",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "webhdfs": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

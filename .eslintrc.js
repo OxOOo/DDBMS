@@ -29,6 +29,7 @@ module.exports = {
     'indent': ['error', 4],
     'camelcase': 'off',
     'no-return-await': 'off',
-    'vue/no-parsing-error': 'off'
+    'vue/no-parsing-error': 'off',
+    'no-unmodified-loop-condition': 'off'
   }
 }

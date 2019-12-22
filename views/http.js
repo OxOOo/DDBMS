@@ -36,6 +36,7 @@ async function handle (req, { nocheck = false, use_loading = false, plain = fals
         // throw e; // IE上会弹出错误提示
         await never();
     }
+    if (plain) return data;
     if (!data.success) {
         if (!nocheck) await showModel('info', '错误', data.message);
         if (use_loading) LoadingBar.finish();
@@ -61,6 +62,12 @@ exp.get_loading = async function (url, params) {
     params = params || {};
     if (!params.hasOwnProperty('r')) params.r = Math.random();
     return await handle(instance.get(url, { params }), { use_loading: true });
+};
+
+exp.get_plain = async function (url, params) {
+    params = params || {};
+    if (!params.hasOwnProperty('r')) params.r = Math.random();
+    return await handle(instance.get(url, { params }), { plain: true });
 };
 
 exp.get_nocheck = async function (url, params) {

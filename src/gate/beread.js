@@ -1,9 +1,17 @@
 let mongoose = require('mongoose');
 
 module.exports = new mongoose.Schema({
-    id: String,
+    id: {
+        type: String,
+        index: true,
+        unique: true
+    },
     timestamp: Date,
-    aid: String,
+    aid: {
+        type: String,
+        index: true,
+        unique: true
+    },
     readNum: Number,
     readUidList: [String],
     commentNum: Number,

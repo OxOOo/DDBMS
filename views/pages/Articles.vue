@@ -16,7 +16,11 @@
             <Option value="en">en</Option>
         </Select>
 
-        <Table stripe border :columns="columns" :data="articles"></Table>
+        <Button @click="genArticle">Insert A Random Article</Button>
+
+        <br/>
+
+        <Table stripe border :columns="columns" :data="articles"></Table><br/>
         <Page :current="page" :page-size="page_size" :total="total_count" show-sizer show-total @on-change="onPageChange" @on-page-size-change="onPageSizeChange" >
             <slot>total {{ total_count }} records</slot>
         </Page>
@@ -74,6 +78,22 @@ export default {
                 {
                     title: 'ArticleTags',
                     key: 'articleTags'
+                },
+                {
+                    title: 'ReadNum',
+                    key: 'readNum'
+                },
+                {
+                    title: 'CommentNum',
+                    key: 'commentNum'
+                },
+                {
+                    title: 'AgreeNum',
+                    key: 'agreeNum'
+                },
+                {
+                    title: 'ShareNum',
+                    key: 'shareNum'
                 }
             ]
         };
@@ -103,6 +123,11 @@ export default {
         async onConditionChange () {
             this.page = 1;
             await this.update();
+        },
+        async genArticle () {
+            await http.post('gen_random_article');
+            await this.update();
+            this.$Message.success('success inserted an article');
         }
     }
 };
