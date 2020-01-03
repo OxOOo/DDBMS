@@ -5,6 +5,9 @@ services:
     volumes:
       - .:/root/ddbms
     working_dir: /root/ddbms
+    ports:
+      - 8800:8800
+    command: node src/app.js
 
   namenode:
     image: bde2020/hadoop-namenode:1.1.0-hadoop2.7.1-java8

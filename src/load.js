@@ -48,8 +48,8 @@ const read_path = path.resolve(__dirname, '..', '3-sized-db-generation/read.dat'
 async function main () {
     try {
         await loadUsers(user_path);
-        // await loadArticles(article_path, article_storage_path);
-        await loadArticles(article_path, null);
+        await loadArticles(article_path, article_storage_path);
+        // await loadArticles(article_path, null);
         await loadReads(read_path);
         await gate.buildAllBeRead();
     } catch (e) {
